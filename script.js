@@ -33,6 +33,10 @@ function fetchWeather(location) {
 function backgroundChange() {
     if (descriptionElement.textContent.includes('overcast clouds')) {
         document.body.style.backgroundImage="url('https://www.rochesterfirst.com/wp-content/uploads/sites/66/2021/04/black-rain-abstract-dark-power-1-1.jpg?resize=2048,1365')";
-    } else {
+    } if (descriptionElement.textContent.includes('clear sky')) {
+        document.body.style.backgroundImage="url('https://www.pexels.com/photo/blue-sky-281260/')";
+)
+    
+    else {
         document.body.style.backgroundImage="";
     }}
