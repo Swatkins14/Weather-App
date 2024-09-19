@@ -23,8 +23,16 @@ function fetchWeather(location) {
         locationElement.textContent = data.name;
         temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
         descriptionElement.textContent = data.weather[0].description;
+        backgroundChange();
     })
     .catch(error => {
         console.error('Error fetching weather data:', error);
     })
 }
+
+function backgroundChange() {
+    if (descriptionElement.textContent.includes('overcast clouds')) {
+        document.body.style.backgroundImage="url('https://www.rochesterfirst.com/wp-content/uploads/sites/66/2021/04/black-rain-abstract-dark-power-1-1.jpg?resize=2048,1365')";
+    } else {
+        document.body.style.backgroundImage="";
+    }}
