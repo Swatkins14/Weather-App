@@ -2,6 +2,8 @@ const apiKey = '6259ddd55f60e7d713c076cc18d4211e';
 const apiURL = 'https://api.openweathermap.org/data/2.5/weather';
 const unsplashApiKey = "tznAiCJKfMdSTb_ctjcx3yikbblSS7KuwlEdLPxEFpc";
 const unsplashApiURL = 'https://api.unsplash.com/photos/random';
+const iconCode = dayForecast.weather[0].icon;
+const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
 
 
 const locationInput = document.getElementById('locationInput');
@@ -94,6 +96,23 @@ function backgroundChange(cityName) {
         console.error('Error fetching background image:', error);
     });
 }
+
+searchButton.addEventListener('click', () => {
+    const location = locationInput.value;
+    if (location) {
+        fetchWeather(location);
+        fetchForecast(location);
+    }
+})
+
+forecastContainer.innerHTML += `
+    <div class="forecast-item">
+        <h3>${dayName}</h3>
+        <img src="${iconURL}" alt="${description}">
+        <p>${temp}</p>
+        <p>${description}</p>
+    </div>
+`;
 
 document.getElementById('loadingSpinner').style.display = 'block';
 
