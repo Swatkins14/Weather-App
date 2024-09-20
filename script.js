@@ -3,22 +3,13 @@ const apiURL = 'https://api.openweathermap.org/data/2.5/weather';
 const forecastApiURL = 'https://api.openweathermap.org/data/2.5/forecast';
 const unsplashApiKey = "tznAiCJKfMdSTb_ctjcx3yikbblSS7KuwlEdLPxEFpc";
 const unsplashApiURL = 'https://api.unsplash.com/photos/random';
-const iconCode = dayForecast.weather[0].icon;
-const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
-
 
 const locationInput = document.getElementById('locationInput');
 const searchButton = document.getElementById('searchButton')
 const locationElement = document.getElementById('location')
 const temperatureElement = document.getElementById('temperature')
 const descriptionElement = document.getElementById('description')
-
-searchButton.addEventListener('click', () => {
-    const location = locationInput.value;
-    if (location) {
-        fetchWeather(location);
-    }
-});
+const forecastContainer = document.getElementById('forecast')
 
 function fetchWeather(location) {
     const url = `${apiURL}?q=${location}&appid=${apiKey}&units=metric`;
@@ -37,7 +28,7 @@ function fetchWeather(location) {
 }
 
 function fetchForecast(location) {
-    const forecastURL = `${forecastApiURLapiURL}/forecast?q=${location}&appid=${apiKey}&units=metric`;
+    const forecastURL = `${forecastApiURL}/forecast?q=${location}&appid=${apiKey}&units=metric`;
 
     fetch(forecastURL)
     .then(response => response.json())
@@ -79,6 +70,18 @@ dailyForecasts.forEach(dayForecast => {
         <p>${description}</p>
     </div>
 `;
+
+const iconCode = dayForecast.weather[0].icon;
+const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
+
+forecastContainer.innerHTML += `
+    <div class="forecast-item">
+        <h3>${dayName}</h3>
+        <img src="${iconURL}" alt="${description}">
+        <p>${temp}</p>
+        <p>${description}</p>
+    </div>
+`;
 })
 }
 
@@ -105,12 +108,3 @@ searchButton.addEventListener('click', () => {
         fetchForecast(location);
     }
 })
-
-forecastContainer.innerHTML += `
-    <div class="forecast-item">
-        <h3>${dayName}</h3>
-        <img src="${iconURL}" alt="${description}">
-        <p>${temp}</p>
-        <p>${description}</p>
-    </div>
-`;
