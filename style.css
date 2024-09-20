@@ -42,13 +42,18 @@ input[type="text"] {
 
 button {
     width: 100%;
-    background-color: #007BFF;
+    background-color: #c5e1ff;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     box-sizing: border-box;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 .weather-info {

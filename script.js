@@ -25,16 +25,16 @@ function fetchWeather(location) {
         locationElement.textContent = data.name;
         temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
         descriptionElement.textContent = data.weather[0].description;
-        backgroundChange(data.weather[0].description);
+        backgroundChange(data.name);
     })
     .catch(error => {
         console.error('Error fetching weather data:', error);
     })
 }
 
-function backgroundChange(weatherDescription) {
+function backgroundChange(cityName) {
 
-    const searchQuery = weatherDescription.replace(/\s+/g, '+')
+    const searchQuery = cityName.replace(/\s+/g, '+')
 
     const unsplashUrl = `${unsplashApiURL}?query=${searchQuery}&client_id=${unsplashApiKey}`;
 
