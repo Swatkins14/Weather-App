@@ -60,3 +60,25 @@ button:active {
     margin-top: 20px;
     font-weight: bold;
 }
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.forecast-item {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+}
+
+.forecast-item h3 {
+    font-size: 16px;
+}
+
+.forecast-item p {
+    margin: 5px 0;
+}
