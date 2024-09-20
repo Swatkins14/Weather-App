@@ -63,6 +63,9 @@ dailyForecasts.forEach(dayForecast => {
     const temp = `${Math.round(dayForecast.main.temp)}°C`;
     const description = dayForecast.weather[0].description;
 
+    const iconCode = dayForecast.weather[0].icon;
+    const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
+
     forecastContainer.innerHTML += `
     <div class="forecast-item">
         <h3>${dayName}</h3>
@@ -70,9 +73,6 @@ dailyForecasts.forEach(dayForecast => {
         <p>${description}</p>
     </div>
 `;
-
-const iconCode = dayForecast.weather[0].icon;
-const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
 
 forecastContainer.innerHTML += `
     <div class="forecast-item">
