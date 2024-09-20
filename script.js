@@ -1,5 +1,6 @@
 const apiKey = '6259ddd55f60e7d713c076cc18d4211e';
 const apiURL = 'https://api.openweathermap.org/data/2.5/weather';
+const forecastApiURL = 'https://api.openweathermap.org/data/2.5/forecast';
 const unsplashApiKey = "tznAiCJKfMdSTb_ctjcx3yikbblSS7KuwlEdLPxEFpc";
 const unsplashApiURL = 'https://api.unsplash.com/photos/random';
 const iconCode = dayForecast.weather[0].icon;
@@ -36,7 +37,7 @@ function fetchWeather(location) {
 }
 
 function fetchForecast(location) {
-    const forecastURL = `${apiURL}/forecast?q=${location}&appid=${apiKey}&units=metric`;
+    const forecastURL = `${forecastApiURLapiURL}/forecast?q=${location}&appid=${apiKey}&units=metric`;
 
     fetch(forecastURL)
     .then(response => response.json())
@@ -55,14 +56,14 @@ function displayForecast(data) {
     const dailyForecasts = [];
 
     data.list.forEach(forecast => {
-        const date = new Date(forecast.dt_text);
+        const date = new Date(forecast.dt_txt);
         const hour = date.getHours();
 
         if (hour === 12) {
             dailyForecasts.push(forecast)
         }
     })
-}
+
 
 dailyForecasts.forEach(dayForecast => {
     const date = new Date(dayForecast.dt_txt);
@@ -79,7 +80,7 @@ dailyForecasts.forEach(dayForecast => {
     </div>
 `;
 })
-
+}
 
 function backgroundChange(cityName) {
 
@@ -113,7 +114,3 @@ forecastContainer.innerHTML += `
         <p>${description}</p>
     </div>
 `;
-
-document.getElementById('loadingSpinner').style.display = 'block';
-
-document.getElementById('loadingSpinner').style.display = 'none';
