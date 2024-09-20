@@ -25,20 +25,25 @@ function fetchWeather(location) {
         locationElement.textContent = data.name;
         temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
         descriptionElement.textContent = data.weather[0].description;
-        backgroundChange();
+        backgroundChange(data.weather[0].description);
     })
     .catch(error => {
         console.error('Error fetching weather data:', error);
     })
 }
 
-function backgroundChange() {
-    if (descriptionElement.textContent.includes('overcast clouds')) {
-        document.body.style.backgroundImage="url('https://www.rochesterfirst.com/wp-content/uploads/sites/66/2021/04/black-rain-abstract-dark-power-1-1.jpg?resize=2048,1365')";
-    } else if (descriptionElement.textContent.includes('clear sky')) {
-        document.body.style.backgroundImage="url('https://www.pexels.com/photo/blue-sky-281260/')";
+function backgroundChange(weatherDescription) {
+
+    const searchQuery = weatherDescription.replace(/\s+/g, '+')
+
+    const unsplashUrl = `${unsplashApiURL}?query=${searchQuery}&client_id=${unsplashApiKey}`;
+
+    fetch(unsplashUrl)
+    .then(response => response.json())
+    .then(data => {
+        document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+    })
+    .catch(error => {
+        console.error('Error fetching background image:', error);
+    });
 }
-    
-    else {
-        document.body.style.backgroundImage="";
-    }}
