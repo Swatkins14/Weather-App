@@ -47,3 +47,7 @@ function backgroundChange(cityName) {
         console.error('Error fetching background image:', error);
     });
 }
+
+document.getElementById('loadingSpinner').style.display = 'block';
+
+document.getElementById('loadingSpinner').style.display = 'none';
