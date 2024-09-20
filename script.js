@@ -3,6 +3,7 @@ const apiURL = 'https://api.openweathermap.org/data/2.5/weather';
 const unsplashApiKey = "tznAiCJKfMdSTb_ctjcx3yikbblSS7KuwlEdLPxEFpc";
 const unsplashApiURL = 'https://api.unsplash.com/photos/random';
 
+
 const locationInput = document.getElementById('locationInput');
 const searchButton = document.getElementById('searchButton')
 const locationElement = document.getElementById('location')
@@ -31,6 +32,52 @@ function fetchWeather(location) {
         console.error('Error fetching weather data:', error);
     })
 }
+
+function fetchForecast(location) {
+    const forecastURL = `${apiURL}/forecast?q=${location}&appid=${apiKey}&units=metric`;
+
+    fetch(forecastURL)
+    .then(response => response.json())
+    .then(data => {
+        displayForecast(data);
+    })
+    .catch(error => {
+        console.error('Error fetching forecast data, please try again;', error);
+    })
+}
+
+function displayForecast(data) {
+    const forecastContainer = document.getElementById('forecast');
+    forecastContainer.innerHTML = '';
+
+    const dailyForecasts = [];
+
+    data.list.forEach(forecast => {
+        const date = new Date(forecast.dt_text);
+        const hour = date.getHours();
+
+        if (hour === 12) {
+            dailyForecasts.push(forecast)
+        }
+    })
+}
+
+dailyForecasts.forEach(dayForecast => {
+    const date = new Date(dayForecast.dt_txt);
+    const dayName = date.toLocaleDateString('en-UK', { weekday: 'long'})
+
+    const temp = `${Math.round(dayForecast.main.temp)}°C`;
+    const description = dayForecast.weather[0].description;
+
+    forecastContainer.innerHTML += `
+    <div class="forecast-item">
+        <h3>${dayName}</h3>
+        <p>${temp}</p>
+        <p>${description}</p>
+    </div>
+`;
+})
+
 
 function backgroundChange(cityName) {
 
