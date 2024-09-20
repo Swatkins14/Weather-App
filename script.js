@@ -1,5 +1,7 @@
 const apiKey = '6259ddd55f60e7d713c076cc18d4211e';
 const apiURL = 'https://api.openweathermap.org/data/2.5/weather';
+const unsplashApiKey = "tznAiCJKfMdSTb_ctjcx3yikbblSS7KuwlEdLPxEFpc";
+const unsplashApiURL = 'https://api.unsplash.com/photos/random';
 
 const locationInput = document.getElementById('locationInput');
 const searchButton = document.getElementById('searchButton')
