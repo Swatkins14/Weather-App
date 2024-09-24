@@ -77,6 +77,12 @@ dailyForecasts.forEach(dayForecast => {
 })
 }
 
+forecastContainer.style.visibility = 'visible';
+forecastContainer.style.opacity = '1';
+
+const container = document.querySelector('.container');
+container.style.height = 'auto';
+
 function backgroundChange(cityName) {
 
     const searchQuery = cityName.replace(/\s+/g, '+')
