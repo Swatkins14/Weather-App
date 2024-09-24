@@ -28,7 +28,7 @@ function fetchWeather(location) {
 }
 
 function fetchForecast(location) {
-    const forecastURL = `${forecastApiURL}/forecast?q=${location}&appid=${apiKey}&units=metric`;
+    const forecastURL = `${forecastApiURL}?q=${location}&appid=${apiKey}&units=metric`;
 
     fetch(forecastURL)
     .then(response => response.json())
@@ -67,14 +67,6 @@ dailyForecasts.forEach(dayForecast => {
     const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
 
     forecastContainer.innerHTML += `
-    <div class="forecast-item">
-        <h3>${dayName}</h3>
-        <p>${temp}</p>
-        <p>${description}</p>
-    </div>
-`;
-
-forecastContainer.innerHTML += `
     <div class="forecast-item">
         <h3>${dayName}</h3>
         <img src="${iconURL}" alt="${description}">
