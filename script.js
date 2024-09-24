@@ -19,7 +19,7 @@ function fetchWeather(location) {
     .then(data => {
         locationElement.textContent = data.name;
         temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
-        descriptionElement.textContent = data.weather[0].description;
+        descriptionElement.textContent = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1).toLowerCase();
         backgroundChange(data.name);
     })
     .catch(error => {

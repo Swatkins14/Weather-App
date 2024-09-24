@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #f0f0f0;
     background-size: cover;
     background-position: center;
@@ -26,7 +26,8 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 50px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -51,7 +52,7 @@ input[type="text"] {
 
 button {
     width: 150px; /* Fixed width */
-    background-color: #007bff;
+    background-color: #feb752;
     color: #fff;
     border: none;
     padding: 10px;
@@ -62,7 +63,7 @@ button {
 }
 
 #searchButton:hover {
-    background-color: #0056b3;
+    background-color: #ffa600;
 }
 
 button:active {
