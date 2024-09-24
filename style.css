@@ -29,25 +29,40 @@ h1 {
     font-size: 24px;
 }
 
-input[type="text"] {
+
+
+.search-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
     width: 100%;
+}
+
+input[type="text"] {
+    width: 300px; /* Fixed width */
     padding: 10px;
-    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
 }
 
+
 button {
-    width: 100%;
-    background-color: #c5e1ff;
+    width: 150px; /* Fixed width */
+    background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     box-sizing: border-box;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
 }
 
 button:active {
