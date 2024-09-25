@@ -7,7 +7,6 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,16 +17,18 @@ body {
     margin: 10px auto;
     text-align: center;
     padding: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(137, 137, 137, 0.8);
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 15px;
     overflow: hidden;
     transition: height 0.4s ease;
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 55px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 1px 1px 0.5px rgb(93, 93, 93);
 }
 
 
@@ -73,6 +74,10 @@ button:active {
 .weather-info {
     margin-bottom: 20px;
     font-weight: bold;
+    color: #f0f0f0;
+    font-size: 18px;
+    text-shadow: 1px 1px 0.5px rgb(93, 93, 93);
+
 }
 
 .forecast-container {
