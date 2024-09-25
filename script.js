@@ -61,7 +61,7 @@ dailyForecasts.forEach(dayForecast => {
     const dayName = date.toLocaleDateString('en-UK', { weekday: 'long'})
 
     const temp = `${Math.round(dayForecast.main.temp)}°C`;
-    const description = dayForecast.weather[0].description;
+    const description = dayForecast.weather[0].description.charAt(0).toUpperCase() + dayForecast.weather[0].description.slice(1).toLowerCase();
 
     const iconCode = dayForecast.weather[0].icon;
     const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`
